@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Space_invader_world
+comment0.text=\n\ Erg\u00E4nzen\ Sie\ hier\ eine\ Beschreibung\ f\u00FCr\ die\ Klasse\ Space_invader_world.\n\ \n\ @author\ (Ihr\ Name)\ \n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\n
+comment1.params=
+comment1.target=Space_invader_world()
+comment1.text=\n\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Space_invader_world\n\ \n
+comment2.params=
+comment2.target=void\ Add_Aliens()
+numComments=3
