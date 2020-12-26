@@ -47,6 +47,7 @@ public class Alien extends Actor
         Change_image();
         Change_image2();
         Remove();
+        Schießen();
     }    
     
     public void set_StartAndEndTime(int S, int E)
@@ -152,5 +153,21 @@ public class Alien extends Actor
             getWorld().removeObject(schuss);
             getWorld().removeObject(this);
         }
+    }
+    
+     public void Schießen()
+    {
+        if (getZufall(10000) > 9980) 
+        {
+            Alien_Schuss schuss = new Alien_Schuss();
+            getWorld().addObject(schuss, getX() , getY());
+        } 
+        
+    }
+    
+    public int getZufall(int i){
+        
+       int zufall = new java.util.Random().nextInt(i);
+       return zufall;
     }
 }

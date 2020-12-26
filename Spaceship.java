@@ -14,6 +14,7 @@ public class Spaceship extends Actor
     { 
         move();
         Schießen();
+        AlienKollision();
     }
 
     public void move(){
@@ -36,5 +37,21 @@ public class Spaceship extends Actor
             getWorld().addObject(schuss, getX() , getY());
         } 
         z++;
+    }
+    
+    public void AlienKollision()
+    {
+        if(isTouching(Alien.class))
+        {   
+            for(int i = 1 ; i < 9 ; i++)
+            {
+                setImage("ex" + i + ".png");
+                Greenfoot.delay(5);
+                
+            }
+            
+            Greenfoot.stop();
+        }
+        
     }
 }
