@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=Spaceship
-comment0.text=\n\ Erg\u00E4nzen\ Sie\ hier\ eine\ Beschreibung\ f\u00FCr\ die\ Klasse\ spaceship.\n\ \n\ @author\ (Ihr\ Name)\ \n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\n
 comment1.params=
 comment1.target=void\ act()
 comment2.params=
@@ -9,4 +8,6 @@ comment3.params=
 comment3.target=void\ Schie\u00DFen()
 comment4.params=
 comment4.target=void\ AlienKollision()
-numComments=5
+comment5.params=
+comment5.target=void\ Alien_Schuss()
+numComments=6

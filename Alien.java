@@ -149,7 +149,7 @@ public class Alien extends Actor
     {
        Actor schuss = getOneIntersectingObject(Schuss.class);
         if (schuss != null) {
-        
+            getWorldOfType(Space_invader_world.class).ChangeWave();
             getWorld().removeObject(schuss);
             getWorld().removeObject(this);
         }
@@ -157,7 +157,7 @@ public class Alien extends Actor
     
      public void Schießen()
     {
-        if (getZufall(10000) > 9980) 
+        if (getZufall(10000) > 9990) 
         {
             Alien_Schuss schuss = new Alien_Schuss();
             getWorld().addObject(schuss, getX() , getY());

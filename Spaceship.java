@@ -1,13 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
 import java.util.concurrent.TimeUnit;
-/**
- * Ergänzen Sie hier eine Beschreibung für die Klasse spaceship.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
-public class Spaceship extends Actor
+
+
+public class Spaceship extends Actor 
 {
+    
     int z=1;
     public void act() 
 
@@ -15,6 +12,8 @@ public class Spaceship extends Actor
         move();
         Schießen();
         AlienKollision();
+        Alien_Schuss();
+        
     }
 
     public void move(){
@@ -28,8 +27,8 @@ public class Spaceship extends Actor
             setLocation(getX() - 1, getY());
         }
     }
-    
-     public void Schießen()
+
+    public void Schießen()
     {
         if (Greenfoot.isKeyDown("space") && z % 13 == 1) 
         {
@@ -38,7 +37,7 @@ public class Spaceship extends Actor
         } 
         z++;
     }
-    
+
     public void AlienKollision()
     {
         if(isTouching(Alien.class))
@@ -47,11 +46,37 @@ public class Spaceship extends Actor
             {
                 setImage("ex" + i + ".png");
                 Greenfoot.delay(5);
-                
+
             }
-            
+
             Greenfoot.stop();
+        }
+
+    }
+
+    public void Alien_Schuss()
+    {
+        Actor schuss = getOneIntersectingObject(Alien_Schuss.class);
+        if(schuss != null )
+        {
+            getWorld().removeObject(schuss);
+            for(int i = 1 ; i < 9 ; i++)
+            {
+                setImage("ex" + i + ".png");
+                Greenfoot.delay(5);
+               
+
+            }
+            Spaceship new_spaceship = new Spaceship();
+            
+            getWorld().addObject(new_spaceship,50 , 70);
+            getWorldOfType(Space_invader_world.class).ChangeLeben();
+            
+            getWorld().removeObject(this);
+
         }
         
     }
+    
+    
 }
