@@ -11,6 +11,8 @@ public class Alien2 extends Alien
     public Alien2() 
     {
         super("Alienb");
-        
+        set_Score_each(20);
     }       
+    
+    
 }
