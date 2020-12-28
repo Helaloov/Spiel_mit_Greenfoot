@@ -11,12 +11,12 @@ public class Alien_Bonus extends Actor
     int Start_moving_time = 0 ;
     int End_moving_time = 100 ;
     long time_start;
-    int z = 1;
+    int saveTime = 1;
    public void act() 
    {
          SaveTime();
          move();
-         Remove();
+         RemoveIfShot();
    }
     
    public void move()
@@ -34,9 +34,9 @@ public class Alien_Bonus extends Actor
    
    public void SaveTime(){
         
-        if(z == 1 )
+        if(saveTime == 1 )
         {
-            time_start = System.currentTimeMillis(); z++;
+            time_start = System.currentTimeMillis(); saveTime++;
         }}
         
    public void RemoveAtEdge()
@@ -49,7 +49,7 @@ public class Alien_Bonus extends Actor
         }
     }
     
-   public void Remove()
+   public void RemoveIfShot()
     {
       if(isTouching(Schuss.class))
       {

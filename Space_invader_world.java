@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
  */
 public class Space_invader_world extends World
 {
-    int Leben = 3 ; 
+    int leben = 3 ; 
     int wave = 0;
     int help_wave = 1;
     int score = 0 ;
@@ -94,7 +94,7 @@ public class Space_invader_world extends World
 
     public void checkForExtraLifes()
     {
-        if(Leben == 2)
+        if(leben == 2)
         {   
             removeObjects(getObjects(New_life.class));
             for (int i =3 ; i < 8 ; i += 4)
@@ -106,7 +106,7 @@ public class Space_invader_world extends World
         
         else
         {
-            if(Leben == 1)
+            if(leben == 1)
             {   
                 removeObjects(getObjects(New_life.class));
 
@@ -116,7 +116,7 @@ public class Space_invader_world extends World
             }
         }
         
-        if(Leben == 0)
+        if(leben == 0)
         {   
             removeObjects(getObjects(New_life.class));
         }
@@ -154,7 +154,7 @@ public class Space_invader_world extends World
 
     public void ChangeLeben()
     {
-        Leben--;
+        leben--;
     }
 
     public void ChangeWave()
@@ -164,7 +164,7 @@ public class Space_invader_world extends World
 
     public void gameOver()
     {
-        if(Leben < 0)
+        if(leben < 0)
         {
             removeObjects(getObjects(Alien.class));
             removeObjects(getObjects(Alien_Schuss.class));
@@ -204,7 +204,7 @@ public class Space_invader_world extends World
     
     public void view_score()
     {
-         if(Leben >= 0) 
+         if(leben >= 0) 
          {
          setBackground("space1.jpg");
          getBackground().setFont(new Font(30));

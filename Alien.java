@@ -10,11 +10,11 @@ public class Alien extends Actor
 {
     long time_start;
     
-    int  Start_moving_time = 900;
-    int  End_moving_time = 1000;
+    int  Start_moving_time = 0;
+    int  End_moving_time = 0;
     
-    int  Start_moving_time2 = 20900;
-    int  End_moving_time2 = 21000;
+    int  Start_moving_time2 = 0;
+    int  End_moving_time2 = 0;
     
     int  Start_moving_time3 = 6900;
     int  End_moving_time3 = 7000;
@@ -26,13 +26,13 @@ public class Alien extends Actor
     int  End_moving_time5 = 6000;
     
    
-    int  makeTheFirstMove = 7900;
+    int  makeTheFirstMove = 0;
     String image;
 
     int  moving_factor = 2;
     int  SaveTime = 1 ;
     int  doNotReprat = 1 ;
-    int  score_each = 20 ;
+    int  score_each = 0 ;
 
     public Alien(String P_image)
     {   

@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 public class Spaceship extends Actor 
 {
     
-    int z=1;
+    int pause =1;
     public void act() 
 
     { 
@@ -30,12 +30,12 @@ public class Spaceship extends Actor
 
     public void Schießen()
     {
-        if (Greenfoot.isKeyDown("space") && z % 13 == 1) 
+        if (Greenfoot.isKeyDown("space") && pause % 13 == 1) 
         {
             Schuss schuss = new Schuss();
             getWorld().addObject(schuss, getX() , getY());
         } 
-        z++;
+        pause++;
     }
 
     public void AlienKollision()

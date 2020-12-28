@@ -10,5 +10,5 @@ comment3.target=void\ SaveTime()
 comment4.params=
 comment4.target=void\ RemoveAtEdge()
 comment5.params=
-comment5.target=void\ Remove()
+comment5.target=void\ RemoveIfShot()
 numComments=6

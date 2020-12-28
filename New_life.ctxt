@@ -3,5 +3,4 @@ comment0.target=New_life
 comment0.text=\n\ Erg\u00E4nzen\ Sie\ hier\ eine\ Beschreibung\ f\u00FCr\ die\ Klasse\ new_life.\n\ \n\ @author\ (Ihr\ Name)\ \n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\n\ Act\ -\ tut,\ was\ auch\ immer\ new_life\ tun\ will.\ Diese\ Methode\ wird\ aufgerufen,\ \n\ sobald\ der\ 'Act'\ oder\ 'Run'\ Button\ in\ der\ Umgebung\ angeklickt\ werden.\ \n
 numComments=2

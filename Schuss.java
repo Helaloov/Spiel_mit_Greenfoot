@@ -13,12 +13,12 @@ public class Schuss extends Actor
     {
         
          setLocation(getX() , getY() - 2);
-         Remove();
+         RemoveIfAtEdge();
     }    
     
     
     
-    public void Remove()
+    public void RemoveIfAtEdge()
     {
         if( isAtEdge())
         {

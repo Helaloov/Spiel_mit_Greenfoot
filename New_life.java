@@ -8,10 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
  */
 public class New_life extends Spaceship
 {
-    /**
-     * Act - tut, was auch immer new_life tun will. Diese Methode wird aufgerufen, 
-     * sobald der 'Act' oder 'Run' Button in der Umgebung angeklickt werden. 
-     */
+    
     public void act() 
     {
         // Ergänzen Sie Ihren Quelltext hier...
