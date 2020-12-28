@@ -49,7 +49,8 @@ public class Spaceship extends Actor
 
             }
 
-            Greenfoot.stop();
+            getWorldOfType(Space_invader_world.class).ChangeLeben();
+            getWorld().removeObjects(getWorld().getObjects(Alien_Bonus.class));
         }
 
     }
