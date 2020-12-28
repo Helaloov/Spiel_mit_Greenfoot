@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Alien_Bonus
+comment0.text=\n\ Erg\u00E4nzen\ Sie\ hier\ eine\ Beschreibung\ f\u00FCr\ die\ Klasse\ Alien_Bonus.\n\ \n\ @author\ (Ihr\ Name)\ \n\ @version\ (eine\ Versionsnummer\ oder\ ein\ Datum)\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ move()
+comment3.params=
+comment3.target=void\ SaveTime()
+comment4.params=
+comment4.target=void\ RemoveAtEdge()
+comment5.params=
+comment5.target=void\ Remove()
+numComments=6

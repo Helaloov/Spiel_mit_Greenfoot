@@ -46,7 +46,7 @@ public class Alien extends Actor
         MoveDown();
         Change_image();
         Change_image2();
-        Remove();
+        RemoveIfShot();
         Schießen();
     }    
     
@@ -145,19 +145,22 @@ public class Alien extends Actor
         }
     }
     
-    public void Remove()
+    public void RemoveIfShot()
     {
        Actor schuss = getOneIntersectingObject(Schuss.class);
         if (schuss != null) {
             getWorldOfType(Space_invader_world.class).ChangeWave();
+            getWorldOfType(Space_invader_world.class).set_score(20);
             getWorld().removeObject(schuss);
             getWorld().removeObject(this);
+            
+            
         }
     }
     
      public void Schießen()
     {
-        if (getZufall(10000) > 9990) 
+        if (getZufall(10000) > 9985) 
         {
             Alien_Schuss schuss = new Alien_Schuss();
             getWorld().addObject(schuss, getX() , getY());

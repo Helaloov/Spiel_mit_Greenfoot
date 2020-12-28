@@ -11,6 +11,8 @@ public class Space_invader_world extends World
     int Leben = 3 ; 
     int wave = 0;
     int help_wave = 1;
+    int score = 0 ;
+    
 
     public Space_invader_world()
     {    
@@ -19,6 +21,8 @@ public class Space_invader_world extends World
         Add_SpaceShip();
         Add_Aliens();
         Add_ExtraLifes();
+        getBackground().setFont(new Font(30));
+        getBackground().drawString("Score: " + score , 620, 618);
     }
 
     public void act()
@@ -27,7 +31,10 @@ public class Space_invader_world extends World
         Add_new_wave();
         Add_new_wave2();
         checkForExtraLifes();
-
+        Add_AlienBonus();
+        view_score();
+        IfWin();
+        
     }
 
     public void Add_SpaceShip()
@@ -96,6 +103,7 @@ public class Space_invader_world extends World
                 addObject(new_life, i , 77);
             }
         }
+        
         else
         {
             if(Leben == 1)
@@ -107,6 +115,7 @@ public class Space_invader_world extends World
 
             }
         }
+        
         if(Leben == 0)
         {   
             removeObjects(getObjects(New_life.class));
@@ -115,8 +124,14 @@ public class Space_invader_world extends World
 
     public void  Add_new_wave()
     {
+        
+        
         if(wave == 50 && help_wave == 1)
         {
+            getBackground().setFont(new Font(70));
+            getBackground().drawString("WAVE 2", 300, 300 );
+            removeObjects(getObjects(Alien_Bonus.class));
+            Greenfoot.delay(60);
             Add_Aliens();
             help_wave++;
         }
@@ -127,6 +142,10 @@ public class Space_invader_world extends World
     {
         if(wave == 100 && help_wave == 2)
         {
+            getBackground().setFont(new Font(70));
+            getBackground().drawString("LAST WAVE", 200, 300 );
+            removeObjects(getObjects(Alien_Bonus.class));
+            Greenfoot.delay(60);
             Add_Aliens();
             help_wave++;
         }
@@ -147,7 +166,64 @@ public class Space_invader_world extends World
     {
         if(Leben < 0)
         {
+            removeObjects(getObjects(Alien.class));
+            removeObjects(getObjects(Alien_Schuss.class));
+            removeObjects(getObjects(Spaceship.class));
+            removeObjects(getObjects(Schuss.class));
+            removeObjects(getObjects(Alien_Schuss.class));
             Greenfoot.stop();
+            getBackground().setFont(new Font(50));
+            getBackground().drawString("Game over :( \n Your score \n       is " + score, 250, 250);
+            
+            
+        }
+        
+        
+    }
+    
+    public int getZufall(int i){
+        
+       int zufall = new java.util.Random().nextInt(i);
+       return zufall;
+    }
+    
+    public void Add_AlienBonus()
+    {
+        if(getZufall(100000)>99900)
+        {
+            Alien_Bonus alien_Bonus = new Alien_Bonus();
+            addObject(alien_Bonus, 1, 5);
+        }
+    
+    }
+    
+    public void set_score(int S)
+    {
+        score += S;
+    }
+    
+    public void view_score()
+    {
+         if(Leben >= 0) 
+         {
+         setBackground("space1.jpg");
+         getBackground().setFont(new Font(30));
+         getBackground().drawString("Score: " + score , 620, 618);
+        }
+    }
+    
+    public void IfWin()
+    {
+        if(wave == 150)
+        {
+            removeObjects(getObjects(Alien.class));
+            removeObjects(getObjects(Alien_Schuss.class));
+            removeObjects(getObjects(Spaceship.class));
+            removeObjects(getObjects(Schuss.class));
+            removeObjects(getObjects(Alien_Schuss.class));
+            Greenfoot.stop();
+            getBackground().setFont(new Font(50));
+            getBackground().drawString(" You Win :) \n Your score \n  is " + score, 250, 250);
         }
     }
 

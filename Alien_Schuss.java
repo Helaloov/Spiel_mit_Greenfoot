@@ -11,10 +11,10 @@ public class Alien_Schuss extends Actor
     public void act() 
     {
          setLocation(getX() , getY() + 1);
-         Remove();
+         RemoveAtEdge();
     }    
 
-    public void Remove()
+    public void RemoveAtEdge()
     {
         if( isAtEdge())
         {
