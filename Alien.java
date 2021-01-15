@@ -33,7 +33,7 @@ public class Alien extends Actor
     int  SaveTime = 1 ;
     int  doNotReprat = 1 ;
     int  score_each = 0 ;
-
+    GreenfootSound Explosion = new GreenfootSound("A_Ex.wav");
     public Alien(String P_image)
     {   
         super();
@@ -161,7 +161,8 @@ public class Alien extends Actor
     {
         Actor schuss = getOneIntersectingObject(Schuss.class);
         if (schuss != null) 
-        {           
+        {   
+            Explosion.play();
             getWorldOfType(Space_invader_world.class).ChangeWave();
             getWorldOfType(Space_invader_world.class).set_score(score);
             getWorld().removeObject(schuss);

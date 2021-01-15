@@ -6,6 +6,8 @@ public class Spaceship extends Actor
 {
     
     int pause =1;
+    GreenfootSound laser = new GreenfootSound("laser.wav");
+    GreenfootSound Explosion = new GreenfootSound("explosion.wav");
     public void act() 
 
     { 
@@ -34,7 +36,9 @@ public class Spaceship extends Actor
         {
             Schuss schuss = new Schuss();
             getWorld().addObject(schuss, getX() , getY());
+            laser.play();
         } 
+        
         pause++;
     }
 
@@ -60,6 +64,7 @@ public class Spaceship extends Actor
         Actor schuss = getOneIntersectingObject(Alien_Schuss.class);
         if(schuss != null )
         {
+            Explosion.play();
             getWorld().removeObject(schuss);
             for(int i = 1 ; i < 9 ; i++)
             {
@@ -68,6 +73,7 @@ public class Spaceship extends Actor
                
 
             }
+            Explosion.play();
             Spaceship new_spaceship = new Spaceship();
             getWorld().addObject(new_spaceship,50 , 70);
             getWorldOfType(Space_invader_world.class).ChangeLeben();

@@ -193,6 +193,7 @@ public class Space_invader_world extends World
         {
             Alien_Bonus alien_Bonus = new Alien_Bonus();
             addObject(alien_Bonus, 1, 5);
+            alien_Bonus.Ufo.play();
         }
     
     }

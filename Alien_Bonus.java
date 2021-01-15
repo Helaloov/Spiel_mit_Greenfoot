@@ -12,6 +12,7 @@ public class Alien_Bonus extends Actor
     int End_moving_time = 100 ;
     long time_start;
     int saveTime = 1;
+    GreenfootSound Ufo = new GreenfootSound("Ufo.wav");
    public void act() 
    {
          SaveTime();
@@ -53,8 +54,9 @@ public class Alien_Bonus extends Actor
     {
       if(isTouching(Schuss.class))
       {
+          Ufo.stop();
           getWorldOfType(Space_invader_world.class).set_score(50);
-          getWorld().removeObjects(getWorld().getObjects(Alien_Bonus.class));
+          getWorld().removeObject(this);
           
       }
       else { RemoveAtEdge();}
