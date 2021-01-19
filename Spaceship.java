@@ -1,13 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot und MouseInfo)
 import java.util.concurrent.TimeUnit;
 
-
 public class Spaceship extends Actor 
 {
-    
+
     int pause =1;
     GreenfootSound laser = new GreenfootSound("laser.wav");
     GreenfootSound Explosion = new GreenfootSound("explosion.wav");
+    boolean explode = false;
+    int Counter = 72;
+    int imageNumber = 1;
     public void act() 
 
     { 
@@ -15,7 +17,11 @@ public class Spaceship extends Actor
         Schießen();
         AlienKollision();
         Alien_Schuss();
-        
+        if (explode)
+        {
+            Counter--;
+            if(Counter == -1) {explode = false;Counter = 70;}
+        }
     }
 
     public void move(){
@@ -38,7 +44,7 @@ public class Spaceship extends Actor
             getWorld().addObject(schuss, getX() , getY());
             laser.play();
         } 
-        
+
         pause++;
     }
 
@@ -46,15 +52,8 @@ public class Spaceship extends Actor
     {
         if(isTouching(Alien.class))
         {   
-            for(int i = 1 ; i < 9 ; i++)
-            {
-                setImage("ex" + i + ".png");
-                Greenfoot.delay(5);
-
-            }
-
-            getWorldOfType(Space_invader_world.class).ChangeLeben();
-            getWorld().removeObjects(getWorld().getObjects(Alien_Bonus.class));
+            explode = true;
+            Explosion.play();
         }
 
     }
@@ -63,29 +62,27 @@ public class Spaceship extends Actor
     {
         Actor schuss = getOneIntersectingObject(Alien_Schuss.class);
         if(schuss != null )
-        {
-            Explosion.play();
-            getWorld().removeObject(schuss);
-            for(int i = 1 ; i < 9 ; i++)
-            {
-                setImage("ex" + i + ".png");
-                Greenfoot.delay(5);
-               
+        {explode = true;Explosion.play();
+            getWorld().removeObject(schuss);}
+        if(explode)
+        {   
+
+            if(Counter % 5 == 0 && Counter  > 35)
+            {   
+
+                setImage("ex" + imageNumber + ".png");
+                imageNumber++;
 
             }
-            Explosion.play();
-            Spaceship new_spaceship = new Spaceship();
-            getWorld().addObject(new_spaceship,50 , 70);
-            getWorldOfType(Space_invader_world.class).ChangeLeben();
-            getWorld().removeObjects(getWorld().getObjects(Alien_Bonus.class));
-            
-            
-            
-            getWorld().removeObject(this);
+            if(Counter == 35 ){
+                Spaceship new_spaceship = new Spaceship();
+                getWorld().addObject(new_spaceship,50 , 70);
+                getWorldOfType(Space_invader_world.class).ChangeLeben();
+                getWorld().removeObjects(getWorld().getObjects(Alien_Bonus.class));
+                Counter = 72;
+                imageNumber =1;
 
+                getWorld().removeObject(this);}
         }
-        
     }
-    
-    
 }
