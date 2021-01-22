@@ -12,12 +12,15 @@ public class Alien_Bonus extends Actor
     int End_moving_time = 100 ;
     long time_start;
     int saveTime = 1;
+    
     GreenfootSound Ufo = new GreenfootSound("Ufo.wav");
+    
    public void act() 
    {
          SaveTime();
          move();
          RemoveIfShot();
+         
    }
     
    public void move()
@@ -44,11 +47,15 @@ public class Alien_Bonus extends Actor
     {
         if( isAtEdge())
         {
+           Ufo.stop();
            getWorld().removeObject(this);
            
            
         }
     }
+   
+    
+    
     
    public void RemoveIfShot()
     {

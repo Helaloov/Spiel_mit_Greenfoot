@@ -78,8 +78,10 @@ public class Spaceship extends Actor
                 Spaceship new_spaceship = new Spaceship();
                 getWorld().addObject(new_spaceship,50 , 70);
                 getWorldOfType(Space_invader_world.class).ChangeLeben();
+                
                 getWorld().removeObjects(getWorld().getObjects(Alien_Bonus.class));
                 Counter = 72;
+                
                 imageNumber =1;
 
                 getWorld().removeObject(this);}

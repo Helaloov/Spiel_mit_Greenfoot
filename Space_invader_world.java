@@ -12,6 +12,7 @@ public class Space_invader_world extends World
     int wave = 0;
     int help_wave = 1;
     int score = 0 ;
+    int set_difficulty = 9985 ;
     
 
     public Space_invader_world()
@@ -23,6 +24,7 @@ public class Space_invader_world extends World
         Add_ExtraLifes();
         getBackground().setFont(new Font(30));
         getBackground().drawString("Score: " + score , 620, 618);
+        
     }
 
     public void act()
@@ -34,6 +36,7 @@ public class Space_invader_world extends World
         Add_AlienBonus();
         view_score();
         IfWin();
+        
         
     }
 
@@ -52,30 +55,35 @@ public class Space_invader_world extends World
             alien1.set_StartAndEndTime(1500,1600);
             alien1.set_MakeTheFirstMove(8500);
             alien1.set_StartRoatition(21500, 21600);
+            alien1.set_difficulty(set_difficulty);
             addObject(alien1, i, 10);
 
             Alien2 alien2 = new Alien2();
             alien2.set_StartAndEndTime(1250,1350);
             alien2.set_MakeTheFirstMove(8250);
             alien2.set_StartRoatition(21250, 21350);
+            alien2.set_difficulty(set_difficulty);
             addObject(alien2, i, 17);
 
             Alien2 alien3 = new Alien2();
             alien3.set_StartAndEndTime(1000,1100);
             alien3.set_MakeTheFirstMove(8000);
             alien3.set_StartRoatition(21000, 21100);
+            alien3.set_difficulty(set_difficulty);
             addObject(alien3, i, 24);
 
             Alien3 alien4 = new Alien3();
             alien4.set_StartAndEndTime(750,8500);
             alien4.set_MakeTheFirstMove(7750);
             alien4.set_StartRoatition(20750, 20850);
+            alien4.set_difficulty(set_difficulty);
             addObject(alien4, i, 31);
 
             Alien3 alien5 = new Alien3();
             alien5.set_StartAndEndTime(500,600);
             alien5.set_MakeTheFirstMove(7500);
             alien5.set_StartRoatition(20500, 20600);
+            alien5.set_difficulty(set_difficulty);
             addObject(alien5, i, 38);
 
     
@@ -130,8 +138,10 @@ public class Space_invader_world extends World
         {
             getBackground().setFont(new Font(70));
             getBackground().drawString("WAVE 2", 300, 300 );
+            
             removeObjects(getObjects(Alien_Bonus.class));
             Greenfoot.delay(60);
+            set_difficulty = set_difficulty - 3; 
             Add_Aliens();
             help_wave++;
         }
@@ -145,7 +155,9 @@ public class Space_invader_world extends World
             getBackground().setFont(new Font(70));
             getBackground().drawString("LAST WAVE", 200, 300 );
             removeObjects(getObjects(Alien_Bonus.class));
+           
             Greenfoot.delay(60);
+            set_difficulty = set_difficulty - 3;
             Add_Aliens();
             help_wave++;
         }
@@ -172,6 +184,7 @@ public class Space_invader_world extends World
             removeObjects(getObjects(Schuss.class));
             removeObjects(getObjects(Alien_Schuss.class));
             Greenfoot.stop();
+            
             getBackground().setFont(new Font(50));
             getBackground().drawString("Game over :( \n Your score \n       is " + score, 250, 250);
             
@@ -189,12 +202,15 @@ public class Space_invader_world extends World
     
     public void Add_AlienBonus()
     {
+        
         if(getZufall(100000)>99900)
         {
             Alien_Bonus alien_Bonus = new Alien_Bonus();
             addObject(alien_Bonus, 1, 5);
             alien_Bonus.Ufo.play();
         }
+        
+        
     
     }
     
@@ -222,10 +238,13 @@ public class Space_invader_world extends World
             removeObjects(getObjects(Spaceship.class));
             removeObjects(getObjects(Schuss.class));
             removeObjects(getObjects(Alien_Schuss.class));
+            
             Greenfoot.stop();
             getBackground().setFont(new Font(50));
             getBackground().drawString(" You Win :) \n Your score \n  is " + score, 250, 250);
         }
     }
+    
+   
 
 }

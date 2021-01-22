@@ -33,6 +33,7 @@ public class Alien extends Actor
     int  SaveTime = 1 ;
     int  doNotReprat = 1 ;
     int  score_each = 0 ;
+    int  difficulty = 9985 ;
     GreenfootSound Explosion = new GreenfootSound("A_Ex.wav");
     public Alien(String P_image)
     {   
@@ -53,7 +54,13 @@ public class Alien extends Actor
         Schießen();
         RemoveIfShotAndSetScore(score_each);
         
-    }    
+    }
+    
+    public void set_difficulty(int D )
+    {
+        difficulty = D ;
+    
+    }
 
     public void set_StartAndEndTime(int S, int E)
     {
@@ -176,7 +183,7 @@ public class Alien extends Actor
         if (getWorld().getObjectsAt(getX() , getY(), Alien.class) != null)
         {
             
-            if (getZufall(10000) > 9985) 
+            if (getZufall(10000) > difficulty) 
             {
                 Alien_Schuss schuss = new Alien_Schuss();
                 getWorld().addObject(schuss, getX() , getY());
