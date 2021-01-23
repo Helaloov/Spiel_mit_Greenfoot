@@ -13,6 +13,8 @@ public class Space_invader_world extends World
     int help_wave = 1;
     int score = 0 ;
     int set_difficulty = 9985 ;
+    GreenfootSound win = new GreenfootSound("win.wav");
+    GreenfootSound gameOver = new GreenfootSound("game_over.wav");
     
 
     public Space_invader_world()
@@ -187,6 +189,7 @@ public class Space_invader_world extends World
             
             getBackground().setFont(new Font(50));
             getBackground().drawString("Game over :( \n Your score \n       is " + score, 250, 250);
+            gameOver.play();
             
             
         }
@@ -242,6 +245,7 @@ public class Space_invader_world extends World
             Greenfoot.stop();
             getBackground().setFont(new Font(50));
             getBackground().drawString(" You Win :) \n Your score \n  is " + score, 250, 250);
+            win.play();
         }
     }
     
